@@ -411,7 +411,7 @@ class IPLineChart{
                     svg2.append("text").attr("transform", "translate(1370, 20)")
                     .text("= The two").style("font-size", "20px").style("fill", "red").attr("id", "text24CR")
                     svg2.append("text").attr("transform", "translate(1240, 40)")
-                    .text("visualizatio.ns below(above the").style("font-size", "20px").style("fill", "red").attr("id", "text25CR")
+                    .text("visualizations below(above the").style("font-size", "20px").style("fill", "red").attr("id", "text25CR")
                     svg2.append("text").attr("transform", "translate(1240, 60)")
                     .text("Go Back button and if they are").style("font-size", "20px").style("fill", "red").attr("id", "text26CR")
                     svg2.append("text").attr("transform", "translate(1240, 80)")

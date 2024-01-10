@@ -405,7 +405,7 @@ class LineChartAttacks{
         .selectAll("text").attr("font-weight",900)
         .style('fill', 'darkOrange')
         // .style('text-anchor', 'middle')
-        .style("font-size", "22px")
+        .style("font-size", "20px")
         .attr("dx", dx)
         .attr("dy", "-.85em")
         .attr("transform", "rotate(90)")
@@ -589,8 +589,8 @@ class LineChartAttacks{
               .join('text')
               .text(d=>`${d.country}, ${this.convert(d.attacks)}, ${this.convert(d.attackers)}`)
               .attr('transform', (d, i) => {
-                let xVal = 105
-                let yVal = 530
+                let xVal = 95
+                let yVal = 525
                 if (this.selectedTimes.length > 10){
                     xVal = 105 + (15 * (this.selectedTimes.length - 10))
                     yVal = 530 + (15 * (this.selectedTimes.length - 10))
