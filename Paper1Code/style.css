@@ -1,0 +1,940 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* div for initial variables */
+div#initialVariablesDiv {
+    left:5px;
+    top:5px;
+    height: 730px;
+    width:1700px;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+
+#data {
+    position: relative;
+    font-size: 40px;
+    top: 30px;
+    left: 970px;
+    width: 450px; 
+    height: 50px;
+    border-radius: 1em; 
+}
+
+svg#dateHeatMap{
+    width: 1660px; 
+}
+
+.button-64 {
+    position: absolute;
+    top: 30px;
+    left:1460px;
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.button-64:active, .button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+/* div for initial variables */
+
+/* div for table legend */
+
+#infoLegend{
+    position: absolute;
+    top: 750px; /*770px*/
+    left: 0px;
+    width: 1705px;
+    height: 130px;
+    /* visibility: hidden; */
+}
+
+#textArea{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1705px;
+    height: 130px;
+}
+
+/* div for table legend ends*/
+
+/* reset button starts */
+
+#resetButton {
+    position: absolute;
+    font-size: 40px;
+    top: 880px;
+    left: 10px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+/* reset button ends */
+
+
+/* Country datalist filter */
+
+#countryOptions{
+    left:10px;
+    top:948px;
+    width: 360px;
+    height: 235px;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    visibility: hidden;
+}
+
+#labelText{
+    position: absolute;
+    top:125px;
+    left:0px;
+}
+
+#labelText2{
+    position: absolute;
+    top:150px;
+    left:0px;
+}
+
+#labelText3{
+    position: absolute;
+    top:175px;
+    left:0px;
+}
+
+
+
+#countries-from-data{
+    position: absolute;
+    top:205px;
+    left:0px;
+    font-size: 25px;
+}
+
+/* Country datalist filter ends*/
+
+/* div for base button */
+
+#baseTPDiv{
+    position: absolute;
+    left:380px;
+    top:1120px;
+    width: 300px;
+    height: 50px;
+    visibility: hidden;
+}
+
+
+#baseTP{
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+    left: 0px;
+    min-width: 300px; 
+    height: 50px;
+    border-radius: 1em; 
+}
+
+/* div for base button ends */
+
+
+/* tab stuff starts */
+
+/* Style the tab */
+.tab 
+{
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width:500px;
+    position: absolute;
+    left:380px;
+    top:885px;
+    visibility: hidden;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 25px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    /* padding: 6px 12px; */
+    border: 1px solid #ccc;
+    border-left: none;
+    position: absolute;
+    left:890px;
+    top:885px;
+    width:790px;
+    height:280px;
+    outline: 2px dashed black;
+    visibility: hidden;
+}
+
+/* tab stuff ends */
+
+
+/* div for dependentDiv starts */
+
+#slidecontainer1{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 790px; 
+    height:280px;
+}
+
+#spanText1{
+    width: 500px; 
+}
+
+#Text1{
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 430px; 
+    height:35px;
+}
+
+#svg1{
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    width: 820px; 
+    height:180px;
+    font-size:18pt;
+}
+
+#myRange1{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+    width: 770px; 
+    height:1px;
+}
+
+#combobox1{
+    position: absolute;
+    top: 240px; 
+    left: 10px;
+    width: 790px;
+}
+
+/* div for dependentDiv ends */
+
+
+/* div for dependentDiv2 starts */
+
+#slidecontainer2{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 790px; 
+    height:280px;
+}
+
+#spanText2{
+    width: 500px; 
+}
+
+
+#Text2{
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 430px; 
+    height:35px;
+}
+
+#svg2{
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    width: 820px; 
+    height:180px;
+    font-size:18pt;
+}
+
+#myRange2{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+    width: 770px; 
+    height:1px;
+}
+
+#combobox2{
+    position: absolute;
+    top: 240px; 
+    left: 10px;
+    width: 790px;
+}
+
+/* div for dependentDiv2 ends */
+
+
+/* div for independentDiv starts*/
+
+#slidecontainer3{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 790px; 
+    height:280px;
+}
+
+#spanText3{
+    width: 500px; 
+}
+
+
+#Text3{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    width: 430px; 
+    height:35px;
+}
+
+#svg3{
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    width: 820px; 
+    height:180px;
+    font-size:18pt;
+}
+
+#myRange3{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+    width: 770px; 
+    height:1px;
+}
+
+#combobox3{
+    position: absolute;
+    top: 240px; 
+    left: 10px;
+    width: 790px;
+}
+
+/* div for independentDiv ends */
+
+
+/* stuff used by comboboxes of all the divs starts*/
+
+.select-editable {
+    position:absolute; 
+    background-color:white; 
+    border:solid grey 1px;  
+    height:31px;
+    width:770px; 
+}
+
+.select-editable select {
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    font-size:14px; 
+    border:none; 
+    width:770px; 
+    margin:0;
+    font-size: 25px;
+    height:31px;
+}
+
+.select-editable input {
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    width:749px; 
+    padding:1px; 
+    font-size:12px; 
+    border:none;
+    font-size: 25px;
+}
+
+.select-editable select:focus, .select-editable input:focus {
+    outline:none;
+}
+
+/* stuff used by comboboxes of all the divs ends*/
+
+
+
+/* Below Used By sliders */
+
+.tooltipForSliders {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tooltipForSliders .tooltiptext {
+    left:10px;
+    visibility: hidden;
+    width: 240px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltipForSliders:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Above Used By sidebar button AND sliders from div */
+
+
+
+/* div for sorting things starts */
+
+#sortTPDiv{
+    position: absolute;
+    top: 1190px;
+    left: 705px;
+    font-size: 25px;
+    visibility: hidden;
+}
+
+#sortTP{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    min-width:220px;
+    font-size: 23px;
+    border-radius: 1em; 
+}
+
+/* div for sorting things ends */
+
+
+
+/* Line chart attacks below */
+.linechartView {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 1210px;
+    left: 0px;
+}
+/* Line chart attacks above*/
+
+
+/* table starts */
+
+#view {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 1330px;
+    left: 720px;
+    /* outline: 5px dashed black; */
+}
+
+table, th, td{
+    border: 0px solid black;
+    border-collapse: collapse;
+    font: 14px sans-serif;
+}
+
+.sortable {
+    user-select: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 6px;
+    font: 25px times;
+}
+
+
+
+#columnHeaders th {
+    font-weight: normal;
+    text-align: center;
+    transform: translate(0px, 50px)
+    /* 45 is really 360 - 45 */
+    rotate(315deg);
+}
+
+#columnHeaders th:first-of-type {
+    text-align: left;
+    transform: translate(-6px, 80px)
+    /* 45 is really 360 - 45 */
+    rotate(0deg);
+}
+
+th:last-of-type
+{
+    text-align: center;
+}
+
+
+
+#predictionTable td {
+    line-height: 0;
+}
+
+#predictionTable tbody tr {
+    cursor: pointer;
+}
+
+#predictionTable tbody{
+    transform: translate(0px, 50px)
+}
+
+tbody tr:hover {
+    background-color: pink;
+}
+
+td:first-of-type {
+    text-align: left;
+}
+
+td {
+    text-align: center;
+}
+
+td:last-of-type
+{
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    background-color: white;
+    color: black;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* table ends */
+
+
+/* div for table legend */
+
+#tableLegend{
+    position: absolute;
+    top: 1180px;
+    left: 950px;
+    width: 760px;
+    height: 200px;
+    /* visibility: hidden; */
+}
+
+#legend{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 760px;
+    height: 200px;
+}
+
+/* div for table legend ends*/
+
+
+/* for bar graph and line chart */
+#attacksAndAttackers{
+    position: absolute;
+}
+
+#exportButton {
+    position: absolute;
+    font-size: 20px;
+    top: 600px;
+    width:180px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#goBackButton {
+    position: absolute;
+    font-size: 20px;
+    top: 600px;
+    width:120px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+/* for bar graph and line chart */
+
+
+
+/* for cross reference graph and associated items*/
+#crossReferenceTools{
+    position: absolute;
+    top:0px;
+    left:1710px;
+    height:180px;
+    width:1250px;
+}
+
+#crTextArea{
+    position: absolute;
+    font-size: 20px;
+    top: 0px;
+    left:0px;
+    height:150px;
+    width:1555px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+
+#ipsClicked{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left:0px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#removeIPButton{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 215px;
+    width: 185px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+div.ui-datepicker, .ui-datepicker td, .ui-datepicker th{
+    font-size:39px;
+}
+
+#startDayPick {
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 410px;
+    width: 180px; 
+    height: 20px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#startWeekPick {
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 410px;
+    width: 190px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#startMonthPick {
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 410px;
+    width: 190px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+
+#endDayPick{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 610px;
+    width: 180px; 
+    height: 20px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#endWeekPick{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 610px;
+    width: 190px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#endMonthPick{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 610px;
+    width: 190px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+
+#crButton{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 810px;
+    width: 190px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#exportIPButton{
+    position: absolute;
+    font-size: 20px;
+    top: 155px;
+    left: 1010px;
+    width: 230px; 
+    height: 25px ;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+
+#crossReferenceIPGraphs{
+    position: absolute;
+}
+
+#crossReferencePointer{
+    position: absolute;
+    font-size: 20px;
+    top: 190px;
+    left: 1710px;
+}
+
+
+#legendForIPGraph{
+    position: absolute;
+    font-size: 20px;
+    top: 520px;
+    left: 2030px;
+}
+
+/* for cross reference graph */
+
+
+/* for treemap */
+#legendForTreeMap{
+    position: absolute;
+    font-size: 20px;
+    top: 0px;
+    left: 3250px;
+}
+
+.node {
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+}
+  
+.node-label {
+    padding: 4px;
+    line-height: 1em;
+    white-space: pre;
+    font-size: 20px;
+}
+
+.node-value {
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    margin-top: 1px;
+}
+/* for treemap */
+
+/* for parallel coordinates */
+#parallelCoordinatesGraph{
+    position: absolute;
+}
+
+#usernameFilterDiv{
+    position: absolute;
+    width: 1150px;
+    height: 110px;
+    top: 1400px;
+    left:5020px;
+}
+
+#usernameTextArea{
+    position: absolute;
+    font-size: 25px;
+    top: 0px;
+    left: 0px;
+    width: 1150px; 
+    height: 70px;
+    visibility: hidden;
+}
+
+#usernameFilter{
+    position: absolute;
+    font-size: 25px;
+    top: 60px;
+    left: 0px;
+    width: 300px; 
+    height: 50px;
+    /* border-radius: 1em;  */
+    visibility: hidden;
+}
+
+
+#allUsernames{
+    position: absolute;
+    font-size: 25px;
+    top: 70px;
+    left: 310px;
+    width: 180px; 
+    height: 50px;
+    border-radius: 1em; 
+    visibility: hidden;
+
+}
+
+#noRoot{
+    position: absolute;
+    font-size: 25px;
+    top: 70px;
+    left: 500px;
+    width: 180px; 
+    height: 50px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#noAdmin{
+    position: absolute;
+    font-size: 25px;
+    top: 70px;
+    left: 690px;
+    width: 180px; 
+    height: 50px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+#noRootAndAdmin{
+    position: absolute;
+    font-size: 25px;
+    top: 70px;
+    left: 880px;
+    width: 260px; 
+    height: 50px;
+    border-radius: 1em; 
+    visibility: hidden;
+}
+
+
+
+/* for parallel coordinates */
+
+/* #donutGraph{
+    position: absolute;
+} */
+
+/* for shbg */
+
+#stackedHorizontalDiv{
+    position: absolute;
+    width: 760px;
+    height: 110px;
+    top: 1400px;
+    left:5060px;
+}
+
+#shbgTextArea{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 760px; 
+    height: 110px;
+}
+
+#stackedHorizontalBarGraph{
+    position: absolute;
+}
+
+/* for shbg */
+
+
+
+
+
+

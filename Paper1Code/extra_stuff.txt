@@ -1,0 +1,812 @@
+initial Variables Stuff
+
+// function findMinandMaxMonth(minMaxDateData){
+//     let selectFunction = document.getElementById("monthPick")
+
+//     let minDate = minMaxDateData['min']['date']
+//     let startingYear = parseInt(minDate.substring(0,4))
+//     let startingMonth = parseInt(minDate.substring(5,7))
+//     let startingDay = parseInt(minDate.substring(8,10))
+
+//     let maxDate = minMaxDateData['max']['date']
+//     let endingYear = parseInt(maxDate.substring(0,4))
+//     let endingMonth = parseInt(maxDate.substring(5,7))
+//     let endingDay = parseInt(maxDate.substring(8,10))
+
+
+//     let d1 = new Date(startingYear, startingMonth, startingDay);
+//     let d2 = new Date(endingYear, endingMonth, endingDay);
+
+//     let ydiff = d2.getYear() - d1.getYear();
+//     let mdiff = d2.getMonth() - d1.getMonth();
+
+//     let diff = (ydiff*12 + mdiff);
+//     for(i = 0 ; i<=diff;i++){
+//         if(i==0){
+//             d1.setMonth(d1.getMonth() -1);
+//         }
+//         else{
+//             d1.setMonth(d1.getMonth() + 1);
+//         }
+
+//         let yearMonth = moment(d1).format("YYYY-MM");
+//         let option = document.createElement("option")
+//         option.value = yearMonth
+//         option.text = yearMonth
+//         selectFunction.add(option)
+//     }
+// }
+
+// function colorMonths(){
+//     let myList = []
+//     $("#monthPick option").each(function()
+//     {   
+//         if ($(this).val() !== "Please Select Multiple Months"){
+//             myList.push($(this).val())
+//         }
+//     })
+
+//     let givenValue = document.getElementById("data").value
+//     let givenValue2 = document.getElementById("timePeriod").value
+//     fetchSummaryData(givenValue, givenValue2, myList).then(function (summaryData){
+//         // for (let i = 0; i < myList.length; i++){
+//         //     myList[i] = myList[i].substring(0,7)
+//         // }
+//         console.log(myList)
+//         // console.log(summaryData)
+
+//         let values = []
+//         for (let i = 0; i < myList.length; i++){
+//             let runningTotal = 0
+//             for (let j = 0; j < summaryData.length; j++){
+//                 let countries = summaryData[j].meta
+//                 for (let k = 0; k < countries.length; k++){
+//                     let country = countries[k]
+//                     if (myList[i] in country){
+//                         let weekStuff = country[myList[i]]
+//                         let weekStuffNum = weekStuff['attacks']
+//                         runningTotal += weekStuffNum
+//                     }
+//                     else{
+//                         runningTotal += 0
+//                     }
+//                 }
+//             }
+//             values.push(runningTotal)
+//         }
+//         console.log(values)
+
+//         this.colorScaleForPercentAttacks= d3.scaleSequential()
+//                                             .interpolator(d3.interpolateReds)
+//                                             .domain([Math.min(...values), Math.max(...values)])
+//         let i = 0
+//         let that = this
+//         $("#monthPick option").each(function()
+//         {   
+//             if ($(this).val() !== "Please Select Multiple Months"){
+//                 let str = $(this).val() 
+//                 console.log
+//                 let color = that.colorScaleForPercentAttacks(values[i])
+//                 $('#monthPick option[value='+str+']').css('background-color', color)
+//                 i++
+//             }
+//         })
+//     })
+// }
+
+// function removeWeekOptions(){
+//     $('#weekPick').find('option').not(':first').remove()
+// }
+
+
+// function removeMonthOptions(){
+//     $('#monthPick').find('option').not(':first').remove()
+// }
+
+// function finalCheck(){
+//     let givenValue = document.getElementById("data").value
+//     let givenValue2 = document.getElementById("timePeriod").value
+
+//     if (givenValue !== '--Please Select --' && givenValue2 !== '--Please Select --'){
+//         if (givenValue2 === 'day'){
+//             let selectedDaysString = $('#datePick').val()
+//             console.log(selectedDaysString)
+//             let selectedDays = []
+//             if (selectedDaysString){
+//                 selectedDays = selectedDaysString.split(',')
+//             }
+//             if (selectedDays.length >= 2){
+//                 for (let i = 0; i < selectedDays.length; i++){
+//                     let thisDate = selectedDays[i]
+//                     let newDate 
+//                     if (i === 0){
+//                         newDate = thisDate.substring(6,10)+"-"+thisDate.substring(0,2)+"-"+thisDate.substring(3,5)
+//                     }
+//                     else{
+//                         newDate = thisDate.substring(7,11)+"-"+thisDate.substring(1,3)+"-"+thisDate.substring(4,6)
+//                     }
+//                     selectedDays[i] = newDate
+//                 }
+//                 console.log(selectedDays)
+//                 fetchSummaryData(givenValue, givenValue2, selectedDays).then(function (summaryData){
+//                     let vizScreen = new VizScreen(summaryData, selectedDays, "days")
+//                     vizScreen.initializeProgram()
+//                 })
+//             }
+//             else{
+//                 if (selectedDays.length === 0){
+//                     alert('Please select at least 2 days.')
+//                 }
+//                 else if (selectedDays.length === 1){
+//                     alert('Please select at least one more day.')
+//                 }
+//             }
+//         }
+//         else if (givenValue2 === 'week'){
+//             let selectedWeeks = $('#weekPick').val()
+//             if (selectedWeeks.length >= 2){
+//                 console.log(selectedWeeks)
+//                 fetchSummaryData(givenValue, givenValue2, selectedWeeks).then(function (summaryData){
+//                     let vizScreen = new VizScreen(summaryData, selectedWeeks, "weeks")
+//                     vizScreen.initializeProgram()
+//                 })
+//             }
+//             else{
+//                 if (selectedWeeks.length === 0){
+//                     alert('Please select at least 2 weeks.')
+//                 }
+//                 else if (selectedWeeks.length === 1){
+//                     alert('Please select at least one more week.')
+//                 }
+//             }
+//         }
+//         else if (givenValue2 === 'month'){
+//             let selectedMonths = $('#monthPick').val()
+//             if (selectedMonths.length >= 2){
+//                 fetchSummaryData(givenValue, givenValue2, selectedMonths).then(function (summaryData){
+//                     let vizScreen = new VizScreen(summaryData, selectedMonths, "months")
+//                     vizScreen.initializeProgram()
+//                 })
+//             }
+//             else{
+//                 if (selectedMonths.length === 0){
+//                     alert('Please select at least 2 months.')
+//                 }
+//                 else if (selectedMonths.length === 1){
+//                     alert('Please select at least one more month.')
+//                 }
+//             }
+//         }
+//     }
+//     else{
+//         if (givenValue === '--Please Select --' && givenValue2 === '--Please Select --'){
+//             alert('Please select a cluster and a time period.')
+//         }
+//         else if (givenValue === '--Please Select --'){
+//             alert('Please select a cluster.')
+//         }
+//         else if (givenValue2 === '--Please Select --'){
+//             alert('Please select a time period.')
+//         }
+//     }
+// }
+
+
+
+
+    
+
+
+    // myArr.push({'Date':"2020-02-29", 'Attacks': 5000000})
+    // myArr.push({'Date':"2021-02-29", 'Attacks': 5000000})
+    // myArr.push({'Date':"2033-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2032-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2031-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2030-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2029-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2028-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2027-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2026-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2025-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2024-12-10", 'Attacks': 5000000})
+
+
+    
+    // myArr.push({'Date':"2018-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2017-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2016-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2015-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2014-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2013-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2012-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2011-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2010-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2009-12-10", 'Attacks': 5000000})
+
+    // myArr.push({'Date':"2020-01-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-01-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-01-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-01-22", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-01-29", 'Attacks': 3000000})
+
+    
+
+    // myArr.push({'Date':"2021-01-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-01-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-01-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-01-22", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-01-29", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2019-01-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-01-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-01-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-01-22", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-01-29", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2019-02-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-02-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-02-15", 'Attacks': 1000000})
+    // myArr.push({'Date':"2019-02-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2020-02-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-02-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-02-15", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-02-22", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2021-02-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-02-08", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-02-15", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-02-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-02-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-02-08", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-02-15", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-02-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2023-02-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-02-08", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-02-15", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-02-22", 'Attacks': 50000})
+
+
+
+    // myArr.push({'Date':"2019-03-09", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-03-02", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-03-22", 'Attacks': 1000000})
+    // myArr.push({'Date':"2019-03-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-03-16", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2020-03-07", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-03-21", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-03-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-03-28", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-03-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2021-03-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-03-09", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-03-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-03-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-03-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-03-10", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-03-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-03-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-03-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-03-14", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2023-03-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-03-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-03-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-03-20", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-03-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-04-09", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-04-02", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-04-22", 'Attacks': 1000000})
+    // myArr.push({'Date':"2019-04-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-04-16", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2020-04-07", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-04-21", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-04-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-04-28", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-04-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2021-04-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-04-09", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-04-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-04-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-04-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-04-10", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-04-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-04-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-04-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-04-14", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2023-04-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-04-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-04-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-04-20", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-04-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-05-09", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-05-02", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-05-22", 'Attacks': 1000000})
+    // myArr.push({'Date':"2019-05-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-05-16", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2020-05-07", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-05-21", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-05-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-05-28", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-05-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2021-05-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-05-09", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-05-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-05-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-05-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-05-10", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-05-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-05-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-05-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-05-14", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2023-05-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-05-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-05-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-05-20", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-05-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-06-09", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-06-02", 'Attacks': 5000})
+    // myArr.push({'Date':"2019-06-22", 'Attacks': 1000000})
+    // myArr.push({'Date':"2019-06-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2019-06-16", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2020-06-07", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-06-21", 'Attacks': 5000})
+    // myArr.push({'Date':"2020-06-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-06-28", 'Attacks': 50000})
+    // myArr.push({'Date':"2020-06-22", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2021-06-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-06-09", 'Attacks': 5000})
+    // myArr.push({'Date':"2021-06-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-06-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-06-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-06-10", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-06-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-06-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-06-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-06-14", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2023-06-15", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-06-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-06-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-06-20", 'Attacks': 50000})
+    // myArr.push({'Date':"2023-06-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-07-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-07-02", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-07-22", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-07-13", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-07-16", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2020-07-07", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-07-21", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-07-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-07-28", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-07-22", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2021-07-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-07-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2021-07-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-07-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-07-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-07-10", 'Attacks': 3000000})
+    // myArr.push({'Date':"2022-07-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-07-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-07-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-07-14", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2023-07-15", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-07-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-07-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-07-20", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-07-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-08-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-08-02", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-08-22", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-08-13", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-08-16", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2020-08-07", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-08-21", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-08-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-08-28", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-08-22", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2021-08-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-08-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2021-08-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-08-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-08-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-08-10", 'Attacks': 3000000})
+    // myArr.push({'Date':"2022-08-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-08-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-08-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-08-14", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2023-08-15", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-08-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-08-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-08-20", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-08-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-09-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-09-02", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-09-22", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-09-13", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-09-16", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2020-09-07", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-09-21", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-09-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-09-28", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-09-22", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2021-09-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-09-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2021-09-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-09-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-09-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-09-10", 'Attacks': 3000000})
+    // myArr.push({'Date':"2022-09-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-09-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-09-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-09-14", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2023-09-15", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-09-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-09-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-09-20", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-09-21", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2019-10-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-10-02", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-10-22", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-10-13", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-10-16", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2020-10-07", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-10-21", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-10-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-10-28", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-10-22", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2021-10-01", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-10-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2021-10-02", 'Attacks': 1000000})
+    // myArr.push({'Date':"2021-10-03", 'Attacks': 50000})
+    // myArr.push({'Date':"2021-10-04", 'Attacks': 50000})
+
+    // myArr.push({'Date':"2022-10-10", 'Attacks': 3000000})
+    // myArr.push({'Date':"2022-10-11", 'Attacks': 500000})
+    // myArr.push({'Date':"2022-10-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2022-10-13", 'Attacks': 50000})
+    // myArr.push({'Date':"2022-10-14", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2023-10-15", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-10-16", 'Attacks': 500000})
+    // myArr.push({'Date':"2023-10-17", 'Attacks': 1000000})
+    // myArr.push({'Date':"2023-10-20", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-10-21", 'Attacks': 50000})
+
+
+    // myArr.push({'Date':"2019-11-09", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-11-02", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-11-22", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-11-13", 'Attacks': 3000000})
+    // myArr.push({'Date':"2019-11-16", 'Attacks': 3000000})
+
+    // myArr.push({'Date':"2020-11-07", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-11-21", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-11-12", 'Attacks': 1000000})
+    // myArr.push({'Date':"2020-11-28", 'Attacks': 3000000})
+    // myArr.push({'Date':"2020-11-22", 'Attacks': 3000000})
+    
+
+    // myArr.push({'Date':"2023-11-15", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-11-16", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-11-17", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-11-20", 'Attacks': 3000000})
+    // myArr.push({'Date':"2023-11-21", 'Attacks': 3000000})
+
+
+
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+    // myArr.push({'Date':"2020-12-10", 'Attacks': 5000000})
+
+    
+    <!-- <select name="timePeriod" id="timePeriod" onchange="specifyTimePeriod();">
+        <option selected="selected" disabled="true">Please Select A Time Period</option>
+        <option value="month">month</option>
+        <option value="week">week</option>
+        <option value="day">day</option>
+    </select> -->
+
+    <!-- <input type="text" id="datePick" placeholder="Please Click Me To Select Multiple Days"/>
+    
+    <select name="weekPick" id="weekPick" multiple>
+        <option selected="selected" disabled="true">Please Select Multiple Weeks</option>
+    </select>
+
+    <select name="monthPick" id="monthPick" multiple>
+        <option selected="selected" disabled="true">Please Select Multiple Months</option>
+    </select> -->
+
+    <!-- <button id="launchPad" onclick="finalCheck()">
+        Launch Tool
+    </button> -->
+
+
+
+// for cell shapes
+
+
+    // addBlackStars(containerSelect){
+    //     for (let j = 0; j < 3; j++){
+    //         containerSelect
+    //         .append("path")
+    //         .attr("id", "blackStar")
+    //         .attr("d",  d3.symbol().type(d3.symbolStar)
+    //         .size(d => {
+    //             //console.log(d.value5)
+    //             let givenArray = d.value5
+    //             if (givenArray[0] === 0 && givenArray[1] === 0 && givenArray[2] === 0){
+    //                 return 0
+    //             }
+    //             else{
+    //                 return 200
+    //             }
+    //         })
+    //         )
+    //         .style("stroke", "black")
+    //         .attr("fill", d => {
+    //             // console.log(d.value5)
+    //             let a = d.value5
+    //             // if (a == undefined){
+    //             //     console.log('here')
+    //             //     //console.log('here')
+    //             //     // return "white"
+    //             // }
+    //             // else{
+    //             let b = a[j]
+    //             // console.log(b)
+    //             if (b === 1){
+    //                 return "black"
+    //             }
+    //             else{
+    //                 return "white"
+    //             }
+    //             // }
+    //         })
+    //         .attr("transform", "translate("+(20 +(j*30))+", 70)")
+    //     }
+    // }
+
+
+
+
+
+    // setBoundariesOfCell(containerSelect){
+    //     containerSelect
+    //         .append('rect')
+    //         .attr("id", "bgrect")
+    //         .attr('x', 0)
+    //         .attr('y', 0)
+    //         .attr('width', 10)
+    //         .attr('height', d => {
+    //             //console.log(d.value4)
+    //             if (d.value4 === 'yes'){
+    //                 return 0
+    //             }
+    //             else{
+    //                 return 50
+    //             }
+    //         })     
+    //         .attr('fill', d => {
+    //             if (d.value4 === 'no'){
+    //                 return 'red'
+    //             }
+    //         })
+
+        
+    //     containerSelect
+    //         .append('rect')
+    //         .attr("id", "bgrect2")
+    //         .attr('x', 60)
+    //         .attr('y', 0)
+    //         .attr('width', 10)
+    //         .attr('height', d => {
+    //             //console.log(d.value7)
+    //             if (d.value7 === 'yes'){
+    //                 return 50
+    //             }
+    //             else{
+    //                 return 0
+    //             }
+    //         })     
+    //         .attr('fill', d => {
+    //             if (d.value7 === 'yes'){
+    //                 return 'black'
+    //             }
+    //         })
+
+        
+    //     containerSelect
+    //         .append('rect')
+    //         .attr("id", "bgrect3")
+    //         .attr('x', 10)
+    //         .attr('y', 0)
+    //         .attr('width', d => {
+    //             //console.log(d.value7)
+    //             if (d.value5 === 'yes'){
+    //                 return 50
+    //             }
+    //             else{
+    //                 return 0
+    //             }
+    //         })   
+    //         .attr('height', 10)
+    //         .attr('fill', d => {
+    //             if (d.value5 === 'yes'){
+    //                 return 'brown'
+    //             }
+    //         })
+
+        
+    //     containerSelect
+    //         .append('rect')
+    //         .attr("id", "bgrect4")
+    //         .attr('x', 10)
+    //         .attr('y', 40)
+    //         .attr('width', d => {
+    //             //console.log(d.value7)
+    //             if (d.value6 === 'yes'){
+    //                 return 50
+    //             }
+    //             else{
+    //                 return 0
+    //             }
+    //         })   
+    //         .attr('height', 10)
+    //         .attr('fill', d => {
+    //             if (d.value6 === 'yes'){
+    //                 return 'grey'
+    //             }
+    //         })
+    // }
+
+
+
+        // console.log('B:', this.neededData)
+
+        //$('#countries').find('option').remove()
+
+        // let countrySelect = document.getElementById("countries")
+        // for (let country of this.neededData){
+        //     let option = document.createElement("option")
+        //     option.value = country.country
+        //     option.text = country.country
+        //     countrySelect.appendChild(option)
+        // }
+
+
+
+
+
+        // let exists2 = $("#usernameFilter option").filter(function (i, o) { return o.text === '-- SEE ALL USERNAMES --'; }).length > 0
+        // if (exists2 == false){
+        //     let option2 = document.createElement("option")
+        //     option2.value = allUsernames
+        //     option2.text = '-- SEE ALL USERNAMES --'
+        //     usernameSelect.add(option2)
+        // }
+
+        // // console.log(allUsernames)
+        // if (allUsernames.includes('root')){
+        //     let exceptRoot = allUsernames.filter(d => d !== 'root')
+        //     let exists3 = $("#usernameFilter option").filter(function (i, o) { return o.text === '-- SEE W/OUT ROOT --'; }).length > 0
+        //     if (exists3 == false){
+        //         let option3 = document.createElement("option")
+        //         option3.value = exceptRoot
+        //         option3.text = '-- SEE W/OUT ROOT --'
+        //         usernameSelect.add(option3)
+        //     }
+        // }
+
+        // if (allUsernames.includes('admin')){
+        //     let exceptAdmin = allUsernames.filter(d => d !== 'admin')
+        //     let exists4 = $("#usernameFilter option").filter(function (i, o) { return o.text === '-- SEE W/OUT ADMIN --'; }).length > 0
+        //     if (exists4 == false){
+        //         let option4 = document.createElement("option")
+        //         option4.value = exceptAdmin
+        //         option4.text = '-- SEE W/OUT ADMIN --'
+        //         usernameSelect.add(option4)
+        //     }
+        // }
+
+        // if (allUsernames.includes('admin') && allUsernames.includes('root')){
+        //     let exceptRootAndAdmin = allUsernames.filter(d => d !== 'admin')
+        //     exceptRootAndAdmin =  exceptRootAndAdmin.filter(d => d !== 'root')
+        //     let exists5 = $("#usernameFilter option").filter(function (i, o) { return o.text === '-- SEE W/OUT ROOT AND ADMIN --'; }).length > 0
+        //     if (exists5 == false){
+        //         let option5 = document.createElement("option")
+        //         option5.value = exceptRootAndAdmin
+        //         option5.text = '-- SEE W/OUT ROOT AND ADMIN --'
+        //         usernameSelect.add(option5)
+        //     }
+        // }
+        
