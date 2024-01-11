@@ -143,6 +143,18 @@ class AttacksAndAttackers {
         // console.log(xPositions)
 
 
+/* Code from line x to y citation:
+
+Title: Basic grouped barplot in d3.js
+Author: Holtz, Y
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://d3-graph-gallery.com/graph/barplot_grouped_basicWide.html
+
+Notes: Cited code has been modified */
+
+
         // figures made here
         for (let i = 0; i < xPositions.length; i++){
             let myPos = xPositions[i]
@@ -288,6 +300,18 @@ class AttacksAndAttackers {
             periodText2 = "Days"
         }
 
+
+        /* Code from line x to y citation:
+
+        Title: How to create a line chart using D3
+        Author: Khan, S
+        Date: N/A
+        Code version: N/A
+        Type: Source Code
+        Availability: https://www.educative.io/answers/how-to-create-a-line-chart-using-d3
+
+        Notes: Cited code has been modified */
+
         // start circle here
         let dataset1 = []
         let categories = ['attacks', 'attackers']
@@ -397,6 +421,16 @@ class AttacksAndAttackers {
         svg.append('text').attr("transform", "translate(140, -51)").text("Attacks by Attackers Unique to "+periodValue+" on the Right").style("font-size", "20px")
 
 
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
         svg.append('svg:image').attr('xlink:href', 'https://flagcdn.com/32x24/'+this.givenCountries[0].toLowerCase()+'.png').attr('x', (widthNumber/2 - 265)).attr('y', -41).attr('width', 32).attr('height', 24)
         svg.append('text').attr("transform", "translate("+(widthNumber/2 - 230)+",-21)").text("[Attacks and Attackers]").style("font-size", "35px")
 
@@ -451,6 +485,19 @@ class AttacksAndAttackers {
     }
 
 }
+
+
+
+/* Code from line x to y citation:
+
+Title: Using the Fetch API - Web APIs
+Author: mdn web docs
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+Notes: Cited code has been modified */
 
 async function getData5(givenDate, countries){
     let givenValue = document.getElementById("data").value

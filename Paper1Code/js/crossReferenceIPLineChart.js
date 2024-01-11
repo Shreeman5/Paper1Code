@@ -194,6 +194,16 @@ class CrossReferenceIPLineChart{
             starterValue = (starterValue - division).toFixed(3)
         }
 
+        /* Code from line x to y citation:
+
+        Title: How to create a line chart using D3
+        Author: Khan, S
+        Date: N/A
+        Code version: N/A
+        Type: Source Code
+        Availability: https://www.educative.io/answers/how-to-create-a-line-chart-using-d3
+
+        Notes: Cited code has been modified */
         for (let i = 0; i < dataset1.length; i++){
             this.circles = svg.append('g')
             .selectAll("dot")
@@ -341,6 +351,17 @@ class CrossReferenceIPLineChart{
             svg2.append('text').attr("transform", "translate("+(starterX+10)+","+(starterY+8)+")")
                 .text(myText).style("font-size", "20px")
                 .style("fill", colors[i]).style("stroke", "black")
+            
+            /* Code from line x to y citation:
+
+            Title: How to add an image to an svg container using D3.js
+            Author: Cheekkallur, A
+            Date: 2013-10-09
+            Code version: N/A
+            Type: Source Code
+            Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+            Notes: Cited code has been modified */
             svg2.append('svg:image').attr('xlink:href', 'https://flagcdn.com/24x18/'+myVal.substring(myVal.length - 2, myVal.length).toLowerCase()+'.png').attr('x', (starterX+175))
             .attr('y', (starterY-8)).attr('width', 24).attr('height', 18)
             starterY +=  21
@@ -443,6 +464,16 @@ class CrossReferenceIPLineChart{
 
 }
 
+/* Code from line x to y citation:
+
+Title: How to export JavaScript array info to csv (on client side)?
+Author: Default
+Date: 2013-02-19
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+Notes: Cited code has been modified */
 function exportCRData(){
     if (CrossReferenceIPLineChart.ipsForFunction.length !== 0){
         let allRows = []

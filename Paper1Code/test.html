@@ -46,9 +46,19 @@
         <svg id = "textArea"></svg>
     </div>
 
-
-
     <button id="resetButton" onclick="resetToInitial()">Reset to Inital State</button>
+
+    <!-- Code from line x to y citation:
+
+    Title: HTML datalist Tag
+    Author: w3schools
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.w3schools.com/tags/tag_datalist.asp
+
+    Notes: Cited code has been modified -->
+
 
     <div id="countryOptions">
         <label for="countries-from-data" style="color:red;font-size:25px;" id="labelText">Filter 1 Country in Linechart and</label>
@@ -59,10 +69,21 @@
     </div>
 
 
+    <!-- Code from line x to y citation:
+
+    Title: How To Create Tabs
+    Author: w3schools
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.w3schools.com/howto/howto_js_tabs.asp
+
+    Notes: Cited code has been modified -->
+
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'dependentDiv')">Base Dependent Filter -- Percentage Change</button>
-        <button class="tablinks" onclick="openCity(event, 'dependentDiv2')">Base Dependent Filter -- Absolute Change</button>
-        <button class="tablinks" onclick="openCity(event, 'independentDiv')">Base Independent Filter -- Absolute Attack</button>
+        <button class="tablinks" onclick="openDiv(event, 'dependentDiv')">Base Dependent Filter -- Percentage Change</button>
+        <button class="tablinks" onclick="openDiv(event, 'dependentDiv2')">Base Dependent Filter -- Absolute Change</button>
+        <button class="tablinks" onclick="openDiv(event, 'independentDiv')">Base Independent Filter -- Absolute Attack</button>
     </div>
       
     <div id="dependentDiv" class="tabcontent">
@@ -123,6 +144,7 @@
     </div>
 
 
+
     <div id="baseTPDiv">
         <select id="baseTP" onchange="baseTPFunc(this.value);"></select>
     </div>
@@ -164,8 +186,21 @@
     </div>
 
 
+    <!-- Code from line x to y citation:
+
+    Title: Emoji Chart - Full List from Emoji v3.0
+    Author: quackit
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.quackit.com/character_sets/emoji/emoji_v3.0/unicode_emoji_v3.0_characters_all.cfm
+    
+    -->
+
     <button id="exportButton" title="Export the below IP attack data into a CSV file." onclick="exportData()">Export IP Data &#8599;</button>
     <button id="goBackButton" title="Return to the bargraph visualization from before." onclick="goBack()">Go Back &#8598;</button>
+
+
     <div id="attacksAndAttackers"></div>
 
     

@@ -8,11 +8,11 @@ class TableLogic{
         function getFlagEmoji(country, cc){
             let a = country + '[' + cc + ']'
             
-            const codePoints = cc
-                .toUpperCase()
-                .split('')
-                .map(char =>  127397 + char.charCodeAt());
-            let b = String.fromCodePoint(...codePoints);
+            // const codePoints = cc
+            //     .toUpperCase()
+            //     .split('')
+            //     .map(char =>  127397 + char.charCodeAt());
+            // let b = String.fromCodePoint(...codePoints);
 
             return a //+ b
         }

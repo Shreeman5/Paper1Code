@@ -172,6 +172,17 @@ class ShapesAroundTable{
     }
 
 
+/* Code from line x to y citation:
+
+Title: Creating a smooth color legend with an SVG gradient
+Author: Visual Cinnamon
+Date: 2016-05-02
+Code version: N/A
+Type: Source Code
+Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+Notes: Cited code has been modified */
+
     addLegend(){
         // add Absolute Legend
         let svg = d3.select('#legend')

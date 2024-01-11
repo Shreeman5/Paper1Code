@@ -138,6 +138,18 @@ class Treemap{
         }
     }
 
+
+/* Code from line x to y citation:
+
+Title: Treemap
+Author: Bostock, Mike
+Date: 2019-03-06
+Code version: gpl-3.0
+Type: Source Code
+Availability: https://gist.github.com/mbostock/6bbb0a7ff7686b124d80#file-flare-csv
+
+Notes: Cited code has been modified */
+
     constructTree(data){
         let width = 750, height = 320;
 
@@ -205,6 +217,15 @@ class Treemap{
                 let wantedIps = d['data'].value2
                 return wantedIps.length + " ip(s)"; 
             })
+
+
+
+
+
+
+
+
+            
 
         let svg2 = d3.select("#legendForTreeMap")
         .append("svg")

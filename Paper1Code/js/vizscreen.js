@@ -1722,8 +1722,21 @@ function fixNumbers(value){
     }
 }
 
-function openCity(evt, cityName) {
-    console.log(cityName)
+
+/* Code from line x to y citation:
+
+    Title: How To Create Tabs
+    Author: w3schools
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.w3schools.com/howto/howto_js_tabs.asp
+
+Notes: Cited code has been modified */
+
+
+function openDiv(evt, divname) {
+    // console.log(cityName)
 
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -1734,7 +1747,7 @@ function openCity(evt, cityName) {
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(divname).style.display = "block";
     evt.currentTarget.className += " active";
 }
 

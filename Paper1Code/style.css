@@ -27,6 +27,21 @@ svg#dateHeatMap{
     width: 1660px; 
 }
 
+
+
+/* Code from line 45 to 94 citation:
+
+Title: 92 Beautiful CSS buttons exaples - CSS Scan
+Author: getcssscan
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://getcssscan.com/css-buttons-examples (click on button 64 to get below code)
+
+Notes: Cited code has been modified
+*/
+
+
 .button-64 {
     position: absolute;
     top: 30px;
@@ -77,6 +92,8 @@ svg#dateHeatMap{
     min-width: 196px;
   }
 }
+
+
 /* div for initial variables */
 
 /* div for table legend */
@@ -180,6 +197,18 @@ svg#dateHeatMap{
 
 /* div for base button ends */
 
+
+/* 
+Code from line x to y citation:
+
+    Title: How To Create Tabs
+    Author: w3schools
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.w3schools.com/howto/howto_js_tabs.asp
+
+Notes: Cited code has been modified */
 
 /* tab stuff starts */
 
@@ -387,6 +416,20 @@ svg#dateHeatMap{
 /* div for independentDiv ends */
 
 
+
+/* 
+Code from line x to y citation:
+
+    Title: html - Editable 'Select' element - Stack Overflow
+    Author: Arraxas
+    Date: 2012-08-10
+    Code version: N/A
+    Type: Source Code
+    Availability: https://stackoverflow.com/questions/2141357/editable-select-element
+
+Notes: Cited code has been modified  */
+
+
 /* stuff used by comboboxes of all the divs starts*/
 
 .select-editable {
@@ -426,6 +469,18 @@ svg#dateHeatMap{
 
 /* stuff used by comboboxes of all the divs ends*/
 
+
+/* 
+Code from line x to y citation:
+
+    Title: CSS Tooltip
+    Author: w3schools
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.w3schools.com/css/css_tooltip.asp
+
+Notes: Cited code has been modified  */
 
 
 /* Below Used By sliders */
@@ -676,6 +731,17 @@ td:last-of-type
     visibility: hidden;
 }
 
+/* Code from line x to y citation:
+
+    Title: How To resize the jQuery DatePicker control - Stack Overflow
+    Author: V, Satyaram B
+    Date: 2010-12-20
+    Code version: N/A
+    Type: Source Code
+    Availability: https://stackoverflow.com/questions/659588/how-to-resize-the-jquery-datepicker-control
+
+Notes: Cited code has been modified */
+
 div.ui-datepicker, .ui-datepicker td, .ui-datepicker th{
     font-size:39px;
 }
@@ -801,6 +867,18 @@ div.ui-datepicker, .ui-datepicker td, .ui-datepicker th{
     left: 3250px;
 }
 
+
+/* Code from line x to y citation:
+
+Title: Treemap
+Author: Bostock, Mike
+Date: 2019-03-06
+Code version: gpl-3.0
+Type: Source Code
+Availability: https://gist.github.com/mbostock/6bbb0a7ff7686b124d80#file-flare-csv
+
+Notes: Cited code has been modified */
+
 .node {
     box-sizing: border-box;
     position: absolute;
@@ -820,6 +898,8 @@ div.ui-datepicker, .ui-datepicker td, .ui-datepicker th{
     margin-top: 1px;
 }
 /* for treemap */
+
+
 
 /* for parallel coordinates */
 #parallelCoordinatesGraph{
