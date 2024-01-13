@@ -344,6 +344,17 @@ class Table{
             this.filterCountries()
         }
 
+
+        /* Code from line x to y citation:
+
+        Title: How do I iterate through table rows and cells in JavaScript?
+        Author: Visual Cinnamon
+        Date: 2016-05-02
+        Code version: N/A
+        Type: Source Code
+        Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+        Notes: Cited code has been modified */
         let that = this
         this.changeStyle = function(e) {
             if(e.target.__data__.class === 'country'){ 
@@ -450,6 +461,31 @@ class Table{
         this.shapes.addLegend()
         // this.shapes.setBoundariesOfCell(grouperSelect.filter((d,i) => i === 0))
 
+
+
+        /* Code from line x to y citation:
+
+        Title: How do I iterate through table rows and cells in JavaScript?
+        Author: Visual Cinnamon
+        Date: 2016-05-02
+        Code version: N/A
+        Type: Source Code
+        Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+        Notes: Cited code has been modified */
+
+        
+
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
 
         let myTable = document.getElementById('predictionTable')
 

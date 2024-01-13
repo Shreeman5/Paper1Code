@@ -53,7 +53,7 @@ class IPLineChart{
 
         // console.log(widthNumber)
 
-        let margin = {top: 50, right: 55, bottom: 60, left: 295},
+        let margin = {top: 50, right: 55, bottom: 70, left: 295},
                     width = widthNumber - margin.left - margin.right,
                     height = 740 - margin.top - margin.bottom;
 
@@ -141,7 +141,7 @@ class IPLineChart{
             let myTexts = svg.append('text').attr("transform", "translate(-265,"+(starterY+8)+")")
                 .text(givenIPs[i]).style("font-size", "20px")
                 .style("fill", d3.schemeTableau10[i])
-            starterY +=  40
+            starterY +=  38
 
             let tip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 10).style("font-size", "30px")
             myTexts.on("mouseover", function(e) {
@@ -169,6 +169,18 @@ class IPLineChart{
                         bool = 0
                     }
 
+                    // console.log(dataset1)
+
+                    /* Code from line x to y citation:
+
+                    Title: How to create a line chart using D3
+                    Author: Khan, S
+                    Date: N/A
+                    Code version: N/A
+                    Type: Source Code
+                    Availability: https://www.educative.io/answers/how-to-create-a-line-chart-using-d3
+
+                    Notes: Cited code has been modified */
 
                     this.circles = svg.append('g')
                     .selectAll("dot")
@@ -235,6 +247,17 @@ class IPLineChart{
                 tip.style("opacity", 0)
                 $(".lineForIP").remove()
                 $(".circForIP").remove()
+
+                /* Code from line x to y citation:
+
+                Title: How to create a line chart using D3
+                Author: Khan, S
+                Date: N/A
+                Code version: N/A
+                Type: Source Code
+                Availability: https://www.educative.io/answers/how-to-create-a-line-chart-using-d3
+
+                Notes: Cited code has been modified */
 
                 for (let i = 0; i < dataset1.length; i++){
                     let givenObj = dataset1[i]
@@ -354,6 +377,7 @@ class IPLineChart{
                     let ipsClicked = document.getElementById("ipsClicked")
                     let option = document.createElement("option")
                     // console.log(that2.givenCountries)
+
                     option.text = optionValue + '--' + that2.getFlagEmoji(that2.givenCountries[0])
                     option.value = optionValue + '--' + that2.givenCountries[0] //+ '|' + 'https://flagcdn.com/32x24/'+that2.givenCountries[0].toLowerCase()+'.png'
                     // option.label = 'https://flagcdn.com/32x24/cn.png'
@@ -454,6 +478,17 @@ class IPLineChart{
 
         // console.log(dataset1)
 
+
+        /* Code from line x to y citation:
+
+        Title: How to create a line chart using D3
+        Author: Khan, S
+        Date: N/A
+        Code version: N/A
+        Type: Source Code
+        Availability: https://www.educative.io/answers/how-to-create-a-line-chart-using-d3
+
+        Notes: Cited code has been modified */
         
         for (let i = 0; i < dataset1.length; i++){
             let givenObj = dataset1[i]
@@ -489,10 +524,20 @@ class IPLineChart{
             .style("stroke-width", "2")
         }
 
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
 
         svg.append('svg:image').attr('xlink:href', 'https://flagcdn.com/32x24/'+this.givenCountries[0].toLowerCase()+'.png').attr('x', (widthNumber/2 - 535)).attr('y', -39).attr('width', 32).attr('height', 24)
         svg.append('text').attr("transform", "translate("+(widthNumber/2 - 500)+",-20)").text("[Top 10 IPs of "+this.givenDate+" at most 7 "+periodText+" before and after]").style("font-size", "25px")
-        svg.append('text').attr("transform", "translate("+(widthNumber/2 - xPos)+",675)").text(periodText2).style("font-size", "25px")
+        svg.append('text').attr("transform", "translate("+(widthNumber/2 - xPos)+",665)").text(periodText2).style("font-size", "25px")
         svg.append('text').attr("transform", "translate(-70,350)rotate(270)").text("Attacks").style("font-size", "25px")
 
         let starterValue = 1720
@@ -593,6 +638,18 @@ function goBack(){
     let aAndALineChart = new AttacksAndAttackers(IPLineChart.resendCountries)
     aAndALineChart.dataForSecondViz(IPLineChart.resendData, IPLineChart.resendTimes, IPLineChart.resendBCData)
 }
+
+
+/* Code from line x to y citation:
+
+Title: How to export JavaScript array info to csv (on client side)?
+Author: Default
+Date: 2013-02-19
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+
+Notes: Cited code has been modified */
 
 function exportData(){
     console.log(IPLineChart.ipData)

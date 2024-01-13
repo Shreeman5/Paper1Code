@@ -592,8 +592,8 @@ class LineChartAttacks{
                 let xVal = 95
                 let yVal = 525
                 if (this.selectedTimes.length > 10){
-                    xVal = 105 + (15 * (this.selectedTimes.length - 10))
-                    yVal = 530 + (15 * (this.selectedTimes.length - 10))
+                    xVal = 95 + (15 * (this.selectedTimes.length - 10))
+                    yVal = 525 + (15 * (this.selectedTimes.length - 10))
                 } 
 
                 let xValue =  xVal - (10*i)

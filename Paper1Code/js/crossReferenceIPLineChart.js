@@ -284,10 +284,22 @@ class CrossReferenceIPLineChart{
                 d3.select(this).attr('stroke-width', 4).style("stroke", "black")//.style('opacity', 0.5)
             })
 
+
+            /* Code from line x to y citation:
+
+            Title: How to add an image to an svg container using D3.js
+            Author: Cheekkallur, A
+            Date: 2013-10-09
+            Code version: N/A
+            Type: Source Code
+            Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+            Notes: Cited code has been modified */
             let tip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 10)
             const stuff = document.getElementById('IPline')
             stuff.addEventListener("mouseover", (event) => {
-                let IPval = colorMap[event.toElement.__data__]
+                // console.log(event)
+                let IPval = colorMap[event.target.__data__]
                 let lastTwo = IPval.substring(IPval.length - 2, IPval.length)
                 let exceptLastTwo = IPval.substring(0, IPval.length - 2)
                 let tiptext = null
@@ -400,6 +412,17 @@ class CrossReferenceIPLineChart{
         
     }
 
+
+    /* Code from line x to y citation:
+
+    Title: Country Code to Flag Emoji
+    Author: Jorik
+    Date: 2021-04-09
+    Code version: N/A
+    Type: Source Code
+    Availability: https://dev.to/jorik/country-code-to-flag-emoji-a21
+
+    Notes: Cited code has been modified */
     getFlagEmoji(cc){
         const codePoints = cc
             .toUpperCase()
@@ -471,7 +494,7 @@ Author: Default
 Date: 2013-02-19
 Code version: N/A
 Type: Source Code
-Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+Availability: https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
 
 Notes: Cited code has been modified */
 function exportCRData(){

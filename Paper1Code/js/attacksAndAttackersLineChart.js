@@ -27,12 +27,12 @@ class AttacksAndAttackers {
         document.getElementById("attacksAndAttackers").style.left = "1720px"
         document.getElementById("attacksAndAttackers").style.top = "640px"
         document.getElementById("attacksAndAttackers").style.width = assignedWidth
-        document.getElementById("attacksAndAttackers").style.height = "740px"
+        document.getElementById("attacksAndAttackers").style.height = "720px"
 
 
-        let margin = {top: 180, right: 50, bottom: 60, left: 95},
+        let margin = {top: 180, right: 50, bottom: 80, left: 95},
                     width = widthNumber - margin.left - margin.right,
-                    height = 740 - margin.top - margin.bottom;
+                    height = 720 - margin.top - margin.bottom;
 
         let svg = d3.select("#attacksAndAttackers")
         .append("svg")
@@ -435,7 +435,7 @@ Notes: Cited code has been modified */
         svg.append('text').attr("transform", "translate("+(widthNumber/2 - 230)+",-21)").text("[Attacks and Attackers]").style("font-size", "35px")
 
 
-        svg.append('text').attr("transform", "translate("+(widthNumber/2 - 100)+",555)").text(periodText2).style("font-size", "25px")
+        svg.append('text').attr("transform", "translate("+(widthNumber/2 - 100)+",535)").text(periodText2).style("font-size", "25px")
         svg.append('text').attr("transform", "translate(-70,165)rotate(270)").text("Attacks").style("font-size", "25px")
         svg.append('text').attr("transform", "translate(-70,430)rotate(270)").text("Attackers").style("font-size", "25px")
     }

@@ -109,6 +109,18 @@ class Donut{
         this.makeDonutChart(neededData, svg, widthNumber, heightNumber)
     }
 
+
+    /* Code from line x to y citation:
+
+    Title: Most basic donut chart in d3.js
+    Author: Holtz, Y
+    Date: N/A
+    Code version: N/A
+    Type: Source Code
+    Availability: https://d3-graph-gallery.com/graph/donut_basic.html
+
+    Notes: Cited code has been modified */
+
     makeDonutChart(data, svg, widthNumber, heightNumber){
         let innerRadiusValue = 125
         let outerRadiusValue = 140

@@ -219,7 +219,7 @@ class ParallelCoordinate{
                 else{
                     desiredData = desiredData.filter(item => vals.includes(item.username))
                 }
-                console.log(desiredData)
+                // console.log(desiredData)
             }
         }
         // console.log(desiredData)
@@ -320,7 +320,7 @@ class ParallelCoordinate{
         let tip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 10)
         const stuff = document.getElementById('x')
         stuff.addEventListener("mouseover", (event) => {
-            let value = event.toElement.__data__
+            let value = event.target.__data__
             let tiptext = null
 
             if (value !== null){
@@ -364,6 +364,17 @@ class ParallelCoordinate{
         }
         // console.log(this.lineIDs)
         
+
+        /* Code from line x to y citation:
+
+        Title: Most basic parallel coordinates chart in d3.js
+        Author: Holtz, Y
+        Date: N/A
+        Code version: N/A
+        Type: Source Code
+        Availability: https://d3-graph-gallery.com/graph/parallel_basic.html
+
+        Notes: Cited code has been modified */
 
         let that = this
 
@@ -416,6 +427,17 @@ class ParallelCoordinate{
                 .style("fill", "black")
             
         }
+
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
         else{
             let xaxis = svg.selectAll("myAxis")
                 .data(dimensions).enter()
@@ -481,33 +503,38 @@ class ParallelCoordinate{
             // })
         }
 
-        
 
+        /* Code from line x to y citation:
 
+        Title: ChatGPT
+        Author: ChatGPT
+        Date: 2024-01-12
+        Code version: N/A
+        Type: Source Code
+        Availability: https://chat.openai.com/c/282e226b-1ac3-4382-be85-9ea43e3ab7eb
 
-        let values = document.getElementById('ID1')
-        let firstLineString = window.getComputedStyle(values).transform
-        let firstLineCoord = Number(firstLineString.substring(19, 22))
-        svg.append('text').attr("transform", "translate("+(firstLineCoord-80)+",310)rotate(270)").text("Username frequency").style("font-size", "25px")
+        Notes: Cited code has been modified */
+
+        let element = document.getElementById("ID1");
+        let svgElement = element.closest("svg");
+        let svgRect = svgElement.getBoundingClientRect();
+        let elementRect = element.getBoundingClientRect();
+        let xWithinSvg = elementRect.left - svgRect.left;
+        // let yWithinSvg = elementRect.top - svgRect.top;
 
         let totalDatesLength = datesOrCountries.length
-        let valuesN = document.getElementById('ID'+totalDatesLength)
-        let lastLineString = window.getComputedStyle(valuesN).transform
-        let importantString = lastLineString.substring(22, 23)
-        if (importantString === '.' || importantString === ','){
-            importantString = lastLineString.substring(19, 22)
-        }
-        else{
-            importantString = lastLineString.substring(19, 23)
-        }
-        // console.log(importantString)
-        let lastLineCoord = Number(importantString)
-        // console.log(lastLineCoord)
-        //console.log(lastLineCoord)
-        let xaxistextAtMiddlePoint = (firstLineCoord + lastLineCoord)/2 - 60
-        //console.log('A:', xaxistextAtMiddlePoint)
+        let element2 = document.getElementById("ID"+totalDatesLength);
+        let svgElement2 = element2.closest("svg");
+        let svgRect2 = svgElement2.getBoundingClientRect();
+        let elementRect2 = element2.getBoundingClientRect();
+        let xWithinSvg2 = elementRect2.left - svgRect2.left;
+        // let yWithinSvg2 = elementRect2.top - svgRect2.top;
 
-        svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+40)+",460)").style("text-anchor", "middle")
+
+        let xaxistextAtMiddlePoint = (xWithinSvg + xWithinSvg2)/2
+        // console.log('A:', xaxistextAtMiddlePoint)
+
+        svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+25)+",460)").style("text-anchor", "middle")
         .text(function(){
             if (that.givenCountries.length === 1){
                 return periodText2
@@ -518,8 +545,23 @@ class ParallelCoordinate{
         })
         .style("font-size", "25px")
 
+        svg.append('text').attr("transform", "translate("+(xWithinSvg-60)+",310)rotate(270)").text("Username frequency").style("font-size", "25px")
+
+
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
+
+        
         if (that.givenCountries.length === 1){   
-            svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+65)+",-20)").style("text-anchor", "middle")
+            svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+15)+",-20)").style("text-anchor", "middle")
             .text(function(){
                 let text
                 if (that.givenNumber === 0){
@@ -546,10 +588,10 @@ class ParallelCoordinate{
 
             svg.append('svg:image')
             .attr('xlink:href', 'https://flagcdn.com/32x24/'+this.givenCountries[0].toLowerCase()+'.png')
-            .attr('x', (xaxistextAtMiddlePoint+45)).attr('y', -70).attr('width', 32).attr('height', 24).style("text-anchor", "middle")
+            .attr('x', (xaxistextAtMiddlePoint+5)).attr('y', -70).attr('width', 32).attr('height', 24).style("text-anchor", "middle")
         }
         else{
-            svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+55)+",-20)").style("text-anchor", "middle")
+            svg.append('text').attr("transform", "translate("+(xaxistextAtMiddlePoint+25)+",-20)").style("text-anchor", "middle")
             .text(function(){
                 let text
                 if (that.givenNumber === 0){

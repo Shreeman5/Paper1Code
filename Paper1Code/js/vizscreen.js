@@ -236,6 +236,16 @@ function neededTickValues(maxY){
 }
 
 
+/* Code from line x to y citation:
+
+Title: Most basic histogram in d3.js
+Author: Holtz, Y
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://d3-graph-gallery.com/graph/histogram_basic.html
+
+Notes: Cited code has been modified */
 
 function addPercentageChangeHistogram(svg, percentSliderMin, percentSliderMax, allNumbers){
     let margin = ({top: 10, right: 0, bottom: 10, left: 80})
@@ -353,6 +363,18 @@ function addOptionsForPercentageChangeSlider(){
         baseSelect.add(option)
     }
 }
+
+
+/* Code from line x to y citation:
+
+Title: Most basic histogram in d3.js
+Author: Holtz, Y
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://d3-graph-gallery.com/graph/histogram_basic.html
+
+Notes: Cited code has been modified */
 
 function addAbsoluteChangeHistogram(svg2, absoluteSliderMin, absoluteSliderMax, allNumbers2){
     let margin = ({top: 10, right: 0, bottom: 10, left: 70})
@@ -496,7 +518,16 @@ function removeIndependentFiltersStuff(){
 }
 
 
+/* Code from line x to y citation:
 
+Title: Most basic histogram in d3.js
+Author: Holtz, Y
+Date: N/A
+Code version: N/A
+Type: Source Code
+Availability: https://d3-graph-gallery.com/graph/histogram_basic.html
+
+Notes: Cited code has been modified */
 
 function addAbsoluteHistogram(svg3, absoluteSliderMin, absoluteSliderMax, allNumbers3){
     let margin = ({top: 10, right: 0, bottom: 10, left: 70})
@@ -715,7 +746,16 @@ function removeRedSpotFromTable(){
     }
 }
 
+/* Code from line x to y citation:
 
+Title: add th to tr in thead of table with jQuery
+Author: nxu
+Date: 2015-02-25
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/28729508/add-th-to-tr-in-thead-of-table-with-jquery
+
+Notes: Cited code has been modified */
 function makeTableTHstructure(){
     $("#predictionTable>thead>tr").append("<th class=sortable id=c0 width=380px>Country</th>")
     let i = 1
@@ -1018,6 +1058,20 @@ function PCC(selectedOption){
     helperFunction8()
 }
 
+
+
+/* Code from line x to y citation:
+
+Title: Is there a difference between /\s/g and /\s+/g?
+Author: Vidas, S
+Date: 2011-05-11
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/5964373/is-there-a-difference-between-s-g-and-s-g
+
+Notes: Cited code has been modified */
+
+
 function PCT(typedNumber){
     if(typedNumber.replace(/\s/g,"") == "" || isNaN(typedNumber)){
         alert("PLEASE ENTER A NUMBER!!!")
@@ -1199,6 +1253,19 @@ function ACC(selectedOption){
     //erase country datalist
     helperFunction8()
 }
+
+
+
+/* Code from line x to y citation:
+
+Title: Is there a difference between /\s/g and /\s+/g?
+Author: Vidas, S
+Date: 2011-05-11
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/5964373/is-there-a-difference-between-s-g-and-s-g
+
+Notes: Cited code has been modified */
 
 function ACT(typedNumber){
     if(typedNumber.replace(/\s/g,"") == "" || isNaN(typedNumber)){
@@ -1383,6 +1450,17 @@ function AC(selectedOption){
     helperFunction8()
 }
 
+
+/* Code from line x to y citation:
+
+Title: Is there a difference between /\s/g and /\s+/g?
+Author: Vidas, S
+Date: 2011-05-11
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/5964373/is-there-a-difference-between-s-g-and-s-g
+
+Notes: Cited code has been modified */
 
 function AT(typedNumber){
     if(typedNumber.replace(/\s/g,"") == "" || isNaN(typedNumber)){
@@ -1634,8 +1712,13 @@ function finalCRChecker(){
         }
     }
     if (dateValue === "day"){
-        let startDay = new Date($('#startDayPick').val() + "GMT-0700")
-        let endDay = new Date($('#endDayPick').val() + "GMT-0700")
+        // console.log(new Date($('#startDayPick').val()))
+        // console.log(new Date('03/25/2017 GMT-0700'))
+        // console.log(new Date($('#startDayPick').val() + " GMT-0700"))
+        let startDay = new Date($('#startDayPick').val() + " GMT-0700")
+        // console.log(startDay)
+        let endDay = new Date($('#endDayPick').val() + " GMT-0700")
+        // console.log(endDay)
         let diffTime = Math.abs(endDay - startDay)
         let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
         // console.log(diffDays)

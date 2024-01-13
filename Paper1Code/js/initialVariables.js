@@ -92,6 +92,18 @@ function findAllDays(minMaxDateData){
     return dates
 }
 
+
+
+/* Code from line x to y citation:
+
+Title: Setting min date in jQuery datepicker
+Author: Gaurav
+Date: 2012-04-13
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/10139378/setting-min-date-in-jquery-datepicker
+
+Notes: Cited code has been modified */
 function fillAllDays(start, end){
     $(document).ready(function () {
         $( "#startDayPick" ).datepicker({
@@ -234,6 +246,17 @@ function getDayData(allTheDates, summaryData){
     return myArr
 }
 
+
+/* Code from line x to y citation:
+
+Title: calendar.html
+Author: Huszarik, M
+Date: 2019-05-08
+Code version: N/A
+Type: Source Code
+Availability: https://gist.github.com/matehuszarik/b1a8004c52334d8efcd0f9aaad195cf9
+
+Notes: Cited code has been modified */
 
 function drawDayHeatMap(myArr, svg, clusterVal){
     let dateValues = myArr.map(dv => ({
@@ -404,6 +427,18 @@ function drawDayHeatMap(myArr, svg, clusterVal){
         .text(d => fixNumbers(d.value) + " Attacks")
 
 
+    
+    /* Code from line x to y citation:
+
+    Title: How can I generate the opposite color according to current color?
+    Author: Gerardlamo
+    Date: 2019-00-07
+    Code version: N/A
+    Type: Source Code
+    Availability: https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
+
+    Notes: Cited code has been modified */
+
     year
         .append("g")
         .attr("text-anchor", "end")
@@ -447,7 +482,18 @@ function drawDayHeatMap(myArr, svg, clusterVal){
 
 
 
-    
+
+    /* Code from line x to y citation:
+
+    Title: Creating a smooth color legend with an SVG gradient
+    Author: Visual Cinnamon
+    Date: 2016-05-02
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+    Notes: Cited code has been modified */
+
     let defs = svg.append("defs");
 
     //Append a linearGradient element to the defs and give it a unique id
@@ -635,6 +681,17 @@ function getWeek(dt){
 
 
 
+/* Code from line x to y citation:
+
+Title: calendar.html
+Author: Huszarik, M
+Date: 2019-05-08
+Code version: N/A
+Type: Source Code
+Availability: https://gist.github.com/matehuszarik/b1a8004c52334d8efcd0f9aaad195cf9
+
+Notes: Cited code has been modified */
+
 function drawWeekHeatMap(weekArr, svg, clusterVal){
     // console.log(weekArr)
 
@@ -791,6 +848,17 @@ function drawWeekHeatMap(weekArr, svg, clusterVal){
         .text(d => fixNumbers(d[2]) + " Attacks")
 
 
+    /* Code from line x to y citation:
+
+    Title: How can I generate the opposite color according to current color?
+    Author: Gerardlamo
+    Date: 2019-00-07
+    Code version: N/A
+    Type: Source Code
+    Availability: https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
+
+    Notes: Cited code has been modified */
+
     year
         .append("g")
         .attr("text-anchor", "end")
@@ -826,6 +894,17 @@ function drawWeekHeatMap(weekArr, svg, clusterVal){
             return "#"+(Number(`0x1${b}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
         })
 
+
+    /* Code from line x to y citation:
+
+    Title: Creating a smooth color legend with an SVG gradient
+    Author: Visual Cinnamon
+    Date: 2016-05-02
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+    Notes: Cited code has been modified */
 
     let defs = svg.append("defs");
 
@@ -1091,6 +1170,18 @@ function getMonthData(years, myArrForWeeks, monthXPos){
 
 
 
+/* Code from line x to y citation:
+
+Title: calendar.html
+Author: Huszarik, M
+Date: 2019-05-08
+Code version: N/A
+Type: Source Code
+Availability: https://gist.github.com/matehuszarik/b1a8004c52334d8efcd0f9aaad195cf9
+
+Notes: Cited code has been modified */
+
+
 function drawMonthHeatMap(monthArr, svg, clusterVal){
     // console.log(weekArr)
 
@@ -1245,6 +1336,16 @@ function drawMonthHeatMap(monthArr, svg, clusterVal){
         .append("title")
         .text(d => fixNumbers(d[2]) + " Attacks")
 
+    /* Code from line x to y citation:
+
+    Title: How can I generate the opposite color according to current color?
+    Author: Gerardlamo
+    Date: 2019-00-07
+    Code version: N/A
+    Type: Source Code
+    Availability: https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
+
+    Notes: Cited code has been modified */
     
     year
         .append("g")
@@ -1315,6 +1416,19 @@ function drawMonthHeatMap(monthArr, svg, clusterVal){
             
             return "#"+(Number(`0x1${b}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
         })
+
+    
+
+    /* Code from line x to y citation:
+
+    Title: Creating a smooth color legend with an SVG gradient
+    Author: Visual Cinnamon
+    Date: 2016-05-02
+    Code version: N/A
+    Type: Source Code
+    Availability: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+
+    Notes: Cited code has been modified */
 
     let defs = svg.append("defs");
 
@@ -1438,6 +1552,18 @@ function fixNumbers(value){
         return value.toFixed(1) + ''
     }
 }
+
+
+/* Code from line x to y citation:
+
+Title: Set attribute on multiple selectors
+Author: George
+Date: 2014-11-25
+Code version: N/A
+Type: Source Code
+Availability: https://stackoverflow.com/questions/27127930/set-attribute-on-multiple-selectors
+
+Notes: Cited code has been modified */
 
 function clearSelectedTimes(){
     // console.log('here')

@@ -177,8 +177,8 @@ Notes: Cited code has been modified
 
 #baseTPDiv{
     position: absolute;
-    left:380px;
-    top:1120px;
+    left:390px;
+    top:1150px;
     width: 300px;
     height: 50px;
     visibility: hidden;
@@ -222,7 +222,7 @@ Notes: Cited code has been modified */
     background-color: #f1f1f1;
     width:500px;
     position: absolute;
-    left:380px;
+    left:390px;
     top:885px;
     visibility: hidden;
 }
@@ -256,7 +256,7 @@ Notes: Cited code has been modified */
     border: 1px solid #ccc;
     border-left: none;
     position: absolute;
-    left:890px;
+    left:900px;
     top:885px;
     width:790px;
     height:280px;
@@ -556,7 +556,7 @@ Notes: Cited code has been modified  */
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 1330px;
+    top: 1370px;
     left: 720px;
     /* outline: 5px dashed black; */
 }
@@ -724,8 +724,8 @@ td:last-of-type
     position: absolute;
     font-size: 20px;
     top: 155px;
-    left: 215px;
-    width: 185px; 
+    left: 225px;
+    width: 175px; 
     height: 25px ;
     border-radius: 1em; 
     visibility: hidden;

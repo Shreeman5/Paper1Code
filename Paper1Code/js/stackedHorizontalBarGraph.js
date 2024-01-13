@@ -159,6 +159,16 @@ class StackedHorizontalBarGraph{
         this.drawStackedbarGraph(keys, myData, svg, width, height, timeOrCountry, checkedBoxes)
     }
 
+    /* Code from line x to y citation:
+
+    Title: Horizontal Stacked Bar Chart
+    Author: Reid, A
+    Date: 2018-06-04
+    Code version: N/A
+    Type: Source Code
+    Availability: https://gist.github.com/Andrew-Reid/0aedd5f3fb8b099e3e10690bd38bd458
+
+    Notes: Cited code has been modified */
     drawStackedbarGraph(keys, data, svg, width, height, timeOrCountry, checkedBoxes){
         data.reverse()
         let periodValue = VizScreen.givenTimePeriod
@@ -246,6 +256,18 @@ class StackedHorizontalBarGraph{
                     return d
                 }));									//   .call(d3.axisBottom(x));
         }
+
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
+
         else{
             let yaxis = svg.append("g").style("font", function(){
                 return "20px times"
@@ -286,6 +308,18 @@ class StackedHorizontalBarGraph{
             // .text("Population")
             // .attr("transform", "translate("+ (-width) +",-10)");   	// Newline
 
+
+        
+        /* Code from line x to y citation:
+
+        Title: How to add an image to an svg container using D3.js
+        Author: Cheekkallur, A
+        Date: 2013-10-09
+        Code version: N/A
+        Type: Source Code
+        Availability: https://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+        Notes: Cited code has been modified */
         if (timeOrCountry === 'Time'){
             svg.append('text').attr("transform", "translate(-110,"+(height/2)+")rotate(270)").text(periodText2).style("font-size", "25px").style("text-anchor", "middle")
             svg.append('svg:image').attr('xlink:href', 'https://flagcdn.com/32x24/'+this.givenCountries[0].toLowerCase()+'.png').attr('x', 70).attr('y', -40).attr('width', 32).attr('height', 24)
